@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int findMax(int arr[], int n) {
+    // Base case: If there's only one element, it's the greatest
+    if (n == 1) {
+        return arr[0];
+    }
+
+    // Recursively find the maximum of the rest of the array
+    int maxOfRest = findMax(arr, n - 1);
+
+    // Return the greater of the current element and the maximum of the rest
+    if (arr[n - 1] > maxOfRest) {
+        return arr[n - 1];
+    } else {
+        return maxOfRest;
+    }
+}
+
+int main() {
+    int n;
+
+    printf("Enter the number of elements in the array: ");
+    scanf("%d", &n);
+
+    int arr[n];
+    printf("Enter the elements of the array:\n");
+
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    int max = findMax(arr, n);
+    printf("The greatest number in the array is: %d\n", max);
+
+    return 0;
+}
