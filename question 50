@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+void decimalToBinary(int n) {
+    if (n > 1) {
+        // Recursively call the function for the quotient
+        decimalToBinary(n / 2);
+    }
+    // Print the remainder (binary digit)
+    printf("%d", n % 2);
+}
+
+int main() {
+    int num;
+    printf("Enter a decimal number: ");
+    scanf("%d", &num);
+
+    // Handle the special case where num is 0
+    if (num == 0) {
+        printf("0");
+    } else {
+        printf("Binary representation: ");
+        decimalToBinary(num);
+    }
+
+    return 0;
+}
